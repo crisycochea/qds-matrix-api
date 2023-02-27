@@ -1,0 +1,15 @@
+version: '3'
+volumes:
+  node_modules:
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./compose/local/api/Dockerfile
+    image: qds_matrix_api
+    container_name: qds_matrix_api
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules/
+    ports:
+      - "3000:3000"
