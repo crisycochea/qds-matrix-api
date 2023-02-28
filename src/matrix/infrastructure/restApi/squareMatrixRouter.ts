@@ -1,16 +1,13 @@
 import express from "express";
 
 import { squareMatrixController } from "../../dependencies";
-import {
-  isArrayOfNumbersArrayValidator,
-  isSquareMatrixValidator,
-} from "./squareMatrixValidators";
+import { isSquareNumberMatrixValidator } from "./squareMatrixValidators";
 
 const squareMatrixRouter = express.Router();
 
 squareMatrixRouter.post(
   "/rotate-counter-clock-wise",
-  isSquareMatrixValidator,
+  isSquareNumberMatrixValidator,
   squareMatrixController.rotateSquareMatrixCounterClockWise.bind(
     squareMatrixController
   )
