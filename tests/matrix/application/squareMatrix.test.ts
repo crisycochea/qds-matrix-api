@@ -2,7 +2,7 @@ import NotSquareMatrix from "../../../src/matrix/domain/exceptions/NotSquareMatr
 import SquareMatrix from "../../../src/matrix/domain/models/squareMatrix";
 
 describe("RotateMatrix", () => {
-  describe("rotateEvenSizeMatrix", () => {
+  describe("throw error when instancing a not square matrix", () => {
     it("should throw error", async () => {
       const matrixArray = [
         [1, 2, 3],
@@ -33,7 +33,7 @@ describe("RotateMatrix", () => {
       );
     });
 
-    describe("rotateEvenSizeMatrix", () => {
+    describe("rotateOddSizeMatrix", () => {
       it("should return [ [3,6,9], [2,5,8], [1,4,7] ]", async () => {
         const matrixArray = [
           [1, 2, 3],
