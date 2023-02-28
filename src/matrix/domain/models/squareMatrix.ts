@@ -1,16 +1,16 @@
 import NotSquareMatrix from "../exceptions/NotSquareMatrix";
 
 export default class SquareMatrix {
-  private matrix_array: Array<Array<number>>;
-  constructor(matrix_array: Array<Array<number>>) {
-    const matrixLength = matrix_array.length;
-    const subListsWithSameLength = matrix_array.every(
+  private matrixArray: Array<Array<number>>;
+  constructor(matrixArray: Array<Array<number>>) {
+    const matrixLength = matrixArray.length;
+    const subListsWithSameLength = matrixArray.every(
       (subList) => subList.length === matrixLength
     );
     if (!subListsWithSameLength) {
       throw new NotSquareMatrix();
     }
-    this.matrix_array = matrix_array;
+    this.matrixArray = matrixArray;
   }
 
   public rotateCounterClockWise() {
@@ -19,22 +19,22 @@ export default class SquareMatrix {
   }
 
   private rotateHorizontalRespectTheMiddle() {
-    this.matrix_array = this.matrix_array.reverse();
+    this.matrixArray = this.matrixArray.reverse();
   }
 
   private transpose() {
-    for (let i = 0; i < this.matrix_array.length; i++) {
+    for (let i = 0; i < this.matrixArray.length; i++) {
       for (let j = 0; j < i; j++) {
-        const tmp = this.matrix_array[i][j];
-        this.matrix_array[i][j] = this.matrix_array[j][i];
-        this.matrix_array[j][i] = tmp;
+        const tmp = this.matrixArray[i][j];
+        this.matrixArray[i][j] = this.matrixArray[j][i];
+        this.matrixArray[j][i] = tmp;
       }
     }
   }
 
-  // to encapsulate the matrix_array, and let the option to get in different formats
+  // to encapsulate the matrixArray, and let the option to get in different formats
   // e.g asString, asSimpleArray, asAnotherClass
   public asArray() {
-    return this.matrix_array;
+    return this.matrixArray;
   }
 }
