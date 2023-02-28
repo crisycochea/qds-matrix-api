@@ -12,7 +12,7 @@ tags:
   - name: Matrices
     description: Matrix operations
 paths:
-  /matrices/rotate-counter-clock-wise:
+  /square-matrices/rotate-counter-clock-wise:
     post:
       tags:
         - matrices
