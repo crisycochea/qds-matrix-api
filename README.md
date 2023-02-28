@@ -1,46 +1,47 @@
-<h1 align="center">QDS Matrix Api</h1>
-
-<p align="center">
-  Skeleton for new typescript services based on hexagonal architecture
-</p>
-
-<p align="center">
-    <a href="https://github.com/AlbertHernandez/hexagonal-architecture-typescript-service-skeleton/actions/workflows/nodejs.yml?branch=main"><img src="https://github.com/AlbertHernandez/hexagonal-architecture-typescript-service-skeleton/actions/workflows/nodejs.yml/badge.svg?branch=main" alt="nodejs"/></a>
-</p>
+# QDS Matrix Api
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [Installing](#installing)
-- [Building](#building)
-- [Testing](#testing)
-  - [Jest with Testing Library](#jest-with-testing-library)
-- [Linting](#linting)
+- [QDS Matrix Api](#qds-matrix-api)
+  - [Table of Contents](#table-of-contents)
+  - [Considerations:](#considerations)
+  - [How to...](#how-to)
+    - [Installing](#installing)
+    - [Debugging](#debugging)
+    - [Test](#test)
+    - [Linting](#linting)
+    - [Build for production](#build-for-production)
+    - [Run production build](#run-production-build)
+    - [Test the endpoint](#test-the-endpoint)
 
-## Installing
+## Considerations:
+- **Algorithm**: I use the 2 steps(transpose and vertical) algorithm because it's more readable and intuitive and it shares the same big O complexity which is O(n^n) with other algorithms(e.g. nested loop options).
+- **Architecture**: Even though there's only an endpoint. The requirement said that it should be scalable. So, we use the onion architecture to separate the business logic and domain from external elements such as express. Also, that is the reason why I create decorators and errorHandler.
+- **Docker compose**: There's no reverse proxy such as Nginx or Traefik in the compose file to keep the deploy flexibility.
+
+## How to...
+### Installing
 
 ```bash
-nvm install 18.0.0
-nvm use
-npm install npm@8.3.0 -g
 npm install
+npm run start:dev
 ```
 
-## Building
-
+### Debugging
+You  configure your editor to run or attach a debugger after run:
 ```bash
-npm run build
+npm run debug
 ```
 
-## Testing
 
-### Jest with Testing Library
+### Test
 
-```bash
+``` bash
 npm run test
 ```
 
-## Linting
+
+### Linting
 
 Run the linter
 
@@ -52,4 +53,22 @@ Fix lint issues automatically
 
 ```bash
 npm run lint:fix
+```
+
+### Build for production
+```bash
+docker compose build
+```
+
+### Run production build
+```bash
+docker compose up
+```
+
+### Test the endpoint
+```bash
+curl -X POST \
+  'http://localhost:3000/square-matrices/rotate-counter-clock-wise' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{"matrix": [ [1,2], [3,4]]}'
 ```
