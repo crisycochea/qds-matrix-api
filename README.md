@@ -1,4 +1,4 @@
-<h1 align="center">Hexagonal Architecture Typescript Service Skeleton</h1>
+<h1 align="center">QDS Matrix Api</h1>
 
 <p align="center">
   Skeleton for new typescript services based on hexagonal architecture
@@ -10,10 +10,12 @@
 
 ## Table of Contents
 
-* [Installing](#installing)
-* [Building](#building)
-* [Testing](#testing)
-* [Linting](#linting)
+- [Table of Contents](#table-of-contents)
+- [Installing](#installing)
+- [Building](#building)
+- [Testing](#testing)
+  - [Jest with Testing Library](#jest-with-testing-library)
+- [Linting](#linting)
 
 ## Installing
 
