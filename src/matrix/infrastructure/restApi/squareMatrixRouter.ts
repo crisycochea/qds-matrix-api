@@ -1,7 +1,10 @@
 import express from "express";
 
 import { squareMatrixController } from "../../dependencies";
-import { isSquareMatrixValidator } from "./squareMatrixValidators";
+import {
+  isArrayOfNumbersArrayValidator,
+  isSquareMatrixValidator,
+} from "./squareMatrixValidators";
 
 const squareMatrixRouter = express.Router();
 
