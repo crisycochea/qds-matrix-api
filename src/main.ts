@@ -4,11 +4,13 @@ import express from "express";
 
 import { squareMatrixRouter } from "./matrix/infrastructure/restApi/squareMatrixRouter";
 import { config } from "./shared/infrastructure/config";
-import { errorHandler } from "./shared/infrastructure/restApi/errorHandler";
+import { contentTypeValidator } from "./shared/infrastructure/restApi/middlewares/contentType";
+import { errorHandler } from "./shared/infrastructure/restApi/middlewares/errorHandler";
 
 function boostrap() {
   const app = express();
 
+  app.use(contentTypeValidator);
   app.use(express.json());
   app.use(errorHandler);
 
