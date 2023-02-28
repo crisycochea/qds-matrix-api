@@ -14,11 +14,26 @@ export default class SquareMatrix {
   }
 
   public rotateCounterClockWise() {
-    this.matrix_array = [[1]];
+    this.transpose();
+    this.rotateHorizontalRespectTheMiddle();
+  }
+
+  private rotateHorizontalRespectTheMiddle() {
+    this.matrix_array = this.matrix_array.reverse();
+  }
+
+  private transpose() {
+    for (let i = 0; i < this.matrix_array.length; i++) {
+      for (let j = 0; j < i; j++) {
+        const tmp = this.matrix_array[i][j];
+        this.matrix_array[i][j] = this.matrix_array[j][i];
+        this.matrix_array[j][i] = tmp;
+      }
+    }
   }
 
   // to encapsulate the matrix_array, and let the option to get in different formats
-  // e.g asString, asList
+  // e.g asString, asSimpleArray, asAnotherClass
   public asArray() {
     return this.matrix_array;
   }
