@@ -1,7 +1,7 @@
 FROM node:18-alpine as build
 WORKDIR /usr/src/app
 COPY package*.json tsconfig.*.json ./
-copy . .
+COPY . .
 RUN npm install 
 RUN npm run build
 
