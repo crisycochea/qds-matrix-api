@@ -4,6 +4,7 @@
 
 - [QDS Matrix Api](#qds-matrix-api)
   - [Table of Contents](#table-of-contents)
+  - [Examples](#examples)
   - [Considerations:](#considerations)
   - [How to...](#how-to)
     - [Installing](#installing)
@@ -13,6 +14,15 @@
     - [Build for production](#build-for-production)
     - [Run production build](#run-production-build)
     - [Test the endpoint](#test-the-endpoint)
+
+
+## Examples
+
+- Rotate [[1, 2], [3, 4]]
+![Rotate even matrix](https://firebasestorage.googleapis.com/v0/b/cristianycochea.appspot.com/o/assets%2Frotate-even-matrix.png.png?alt=media )
+
+- Rotate [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+![Rotate odd matrix](https://firebasestorage.googleapis.com/v0/b/cristianycochea.appspot.com/o/assets%2Frotate-odd-matrix.png?alt=media)
 
 ## Considerations:
 - **Algorithm**: I use the 2 steps(transpose and vertical) algorithm because it's more readable and intuitive and it shares the same big O complexity which is O(n^n) with other algorithms(e.g. nested loop options).
